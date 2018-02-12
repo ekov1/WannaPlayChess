@@ -3,9 +3,9 @@ using WannaPlayChess.Figures.Contracts;
 
 namespace WannaPlayChess.Figures
 {
-    public class Pawn : ChessFigure, IFigure
+    public class Bishop : ChessFigure, IFigure
     {
-        public Pawn(ChessColor color)
+        public Bishop(ChessColor color) 
             : base(color)
         {
         }
