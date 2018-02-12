@@ -41,12 +41,12 @@ namespace WannaPlayChess.Engine.Initializations
 
             var firstPlayer = players[0];
             var secondPlayer = players[1];
-
-            // First player pawns row
+         
             this.InitializePawns(firstPlayer, board, 7);
-
-            // Second player pawns row
-            this.InitializePawns(firstPlayer, board, 2);
+            this.InitializeKingsRow(firstPlayer, board, 8);
+           
+            this.InitializePawns(secondPlayer, board, 2);
+            this.InitializeKingsRow(secondPlayer, board, 1);
         }
 
         private void InitializeKingsRow(IPlayer player, IBoard board, int chessRow)
