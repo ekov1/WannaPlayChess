@@ -9,6 +9,7 @@ namespace WannaPlayChess.Renderes
     public class ConsoleRenderer : IRenderer
     {
         private const string Logo = "WannaPlayChess";
+        private const int CharactersPerBoardSquare = 9;
 
         public void RenderMainMenu()
         {
@@ -21,7 +22,11 @@ namespace WannaPlayChess.Renderes
 
         public void RenderBoard(IBoard board)
         {
-            throw new System.NotImplementedException();
+            Console.BackgroundColor = ConsoleColor.White;
+            var startRowPrintInt = Console.WindowHeight / 2 - (board.TotalRows / 2) * CharactersPerBoardSquare;
+            var startColPrintInt = Console.WindowWidth / 2 - (board.TotalCols / 2) * CharactersPerBoardSquare;
+
+            Console.SetCursorPosition(startColPrintInt, startRowPrintInt);
         }
     }
 }

@@ -11,15 +11,17 @@
 
     public class StandadrdTwoPlayerEngine : IChessEngine
     {
-        private readonly IEnumerable<IPlayer> players;
         private readonly IRenderer renderer;
         private readonly IInputProvider inputProvider;
+
+        private readonly IEnumerable<IPlayer> players;
         private readonly IBoard board;
 
         public StandadrdTwoPlayerEngine(IRenderer renderer, IInputProvider inputProvider)
         {
             this.renderer = renderer;
             this.inputProvider = inputProvider;
+            this.board = new Board();
         }
 
         public IEnumerable<IPlayer> Players
@@ -32,8 +34,9 @@
 
         public void Initialize(IInitializeGameBoard initializeGameBoard)
         {
-            var players = inputProvider.GetPlayers(GlobalConstants.StandardGameNumberOfPlayers);
-            initializeGameBoard.Initialize(players, new Board());
+           var players = this.inputProvider.GetPlayers(GlobalConstants.StandardGameNumberOfPlayers);
+            initializeGameBoard.Initialize(players, this.board);
+            this.renderer.RenderBoard(board);
         }
 
         public void Start()
