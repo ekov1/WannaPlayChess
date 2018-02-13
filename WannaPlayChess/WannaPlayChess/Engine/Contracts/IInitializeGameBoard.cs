@@ -7,5 +7,6 @@ namespace WannaPlayChess.Engine.Contracts
     public interface IInitializeGameBoard
     {
         void Initialize(IList<IPlayer> players, IBoard board);
+
     }
 }

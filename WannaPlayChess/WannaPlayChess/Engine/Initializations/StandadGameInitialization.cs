@@ -1,21 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WannaPlayChess.Board;
 using WannaPlayChess.Common;
 using WannaPlayChess.Engine.Contracts;
 using WannaPlayChess.Figures;
 using WannaPlayChess.Figures.Contracts;
-using WannaPlayChess.Players;
 using WannaPlayChess.Players.Contracts;
 
 namespace WannaPlayChess.Engine.Initializations
 {
     public class StandadGameInitialization : IInitializeGameBoard
     {
-        private const int NumberOfPlayers = 2;
         private const int BoradTotalRowsCols = 8;
 
         private IList<Type> figureTypes;
@@ -41,10 +36,10 @@ namespace WannaPlayChess.Engine.Initializations
 
             var firstPlayer = players[0];
             var secondPlayer = players[1];
-         
+
             this.InitializePawns(firstPlayer, board, 7);
             this.InitializeKingsRow(firstPlayer, board, 8);
-           
+
             this.InitializePawns(secondPlayer, board, 2);
             this.InitializeKingsRow(secondPlayer, board, 1);
         }
@@ -76,7 +71,7 @@ namespace WannaPlayChess.Engine.Initializations
 
         private void ValidateGameInitialization(ICollection<IPlayer> players, IBoard board)
         {
-            if (players.Count != NumberOfPlayers)
+            if (players.Count != GlobalConstants.StandardGameNumberOfPlayers)
             {
                 throw new InvalidOperationException("Standad Game Initialization needs two players!");
             }

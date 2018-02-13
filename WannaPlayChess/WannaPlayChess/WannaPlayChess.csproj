@@ -45,6 +45,7 @@
     <Compile Include="Board\Board.cs" />
     <Compile Include="Board\IBoard.cs" />
     <Compile Include="Common\ChessColor.cs" />
+    <Compile Include="Common\Console\ConosoleHelpers.cs" />
     <Compile Include="Common\GlobalConstants.cs" />
     <Compile Include="Common\GlobalErrormessages.cs" />
     <Compile Include="Common\ObjectValidator.cs" />
@@ -62,9 +63,13 @@
     <Compile Include="Figures\Pawn.cs" />
     <Compile Include="Figures\Queen.cs" />
     <Compile Include="Figures\Rook.cs" />
+    <Compile Include="InputProviders\ConsoleInputProvider.cs" />
+    <Compile Include="InputProviders\Contracts\IInputProvider.cs" />
     <Compile Include="Players\Contracts\IPlayer.cs" />
     <Compile Include="Players\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renderes\ConsoleRenderer.cs" />
+    <Compile Include="Renderes\Contracts\IRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
