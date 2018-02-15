@@ -2,6 +2,10 @@
 {
     public struct Position
     {
+        public static Position FromArrCordinates(int row, int col, int totalRows)
+        {
+            return new Position(totalRows - row, (char)(col + 'a'));
+        }
         public Position(int row, char col)
             : this()
         {

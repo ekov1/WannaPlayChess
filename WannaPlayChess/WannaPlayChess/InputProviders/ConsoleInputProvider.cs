@@ -18,7 +18,7 @@ namespace WannaPlayChess.InputProviders
             for (int i = 1; i <= numberOfPlayers; i++)
             {
                 Console.Clear();
-                ConosoleHelpers.SetCursorAtCenter(PlayerNameText.Length);
+                ConsoleHelpers.SetCursorAtCenter(PlayerNameText.Length);
                 Console.WriteLine(PlayerNameText,i);
                 string name = Console.ReadLine();
                 var player = new Player(name, (ChessColor)(i - 1));

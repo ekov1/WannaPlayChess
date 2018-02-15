@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using WannaPlayChess.Board;
+using WannaPlayChess.Common;
 using WannaPlayChess.Common.Console;
 using WannaPlayChess.Renderes.Contracts;
 
@@ -15,7 +16,7 @@ namespace WannaPlayChess.Renderes
 
         public void RenderMainMenu()
         {
-            ConosoleHelpers.SetCursorAtCenter(Logo.Length);
+            ConsoleHelpers.SetCursorAtCenter(Logo.Length);
             Console.WriteLine(Logo);
 
             Thread.Sleep(1500);
@@ -39,14 +40,19 @@ namespace WannaPlayChess.Renderes
                     currentColPrint = startColPrintInt + top * CharactersPerBoardSquare;
                     currentRowPrint = startRowPrintInt + left * CharactersPerBoardSquare;
 
+                    ConsoleColor backgroundColor;
                     if (counter % 2 == 0)
                     {
-                        Console.BackgroundColor = black;
+                        backgroundColor = Console.BackgroundColor = black;
                     }
                     else
                     {
-                        Console.BackgroundColor = white;
+                        backgroundColor = Console.BackgroundColor = white;
                     }
+
+                    var position = Position.FromArrCordinates(top, left, board.TotalRows);
+                    var figure = board.GetfigureAtPosition(position);
+                    ConsoleHelpers.PrintChessFigure(figure, backgroundColor, ConsoleHelpers.ToConosleColor(figure.Color));
 
                     for (int i = 0; i < CharactersPerBoardSquare; i++)
                     {
@@ -57,6 +63,8 @@ namespace WannaPlayChess.Renderes
                             Console.WriteLine(" ");
                         }
                     }
+
+
                     counter++;
                 }
                 counter++;

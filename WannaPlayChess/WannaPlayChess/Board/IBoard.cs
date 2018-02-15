@@ -3,7 +3,7 @@ using WannaPlayChess.Figures.Contracts;
 
 namespace WannaPlayChess.Board
 {
-   public interface IBoard
+    public interface IBoard
     {
         int TotalRows { get; }
 
@@ -12,5 +12,7 @@ namespace WannaPlayChess.Board
         void AddFigure(IFigure figure, Position position);
 
         void RemoveFigure(Position position);
+
+        IFigure GetfigureAtPosition(Position position);
     }
 }

@@ -19,6 +19,14 @@ namespace WannaPlayChess.Board
 
         public int TotalCols { get; private set; }
 
+        public IFigure GetfigureAtPosition(Position position)
+        {
+            int arrRow = this.GetArrayRow(position.Row);
+            int arrCol = this.GetArrayCol(position.Col);
+
+            return this.board[arrRow, arrCol];
+        }
+
         public void AddFigure(IFigure figure, Position position)
         {
             ObjectValidator.CheckIfObjectIsNull(figure, GlobalErrormessages.NullFigureErrorMessage);
