@@ -22,11 +22,12 @@ namespace WannaPlayChess.Renderes
 
         public void RenderBoard(IBoard board)
         {
-            Console.BackgroundColor = ConsoleColor.White;
             var startRowPrintInt = Console.WindowHeight / 2 - (board.TotalRows / 2) * CharactersPerBoardSquare;
             var startColPrintInt = Console.WindowWidth / 2 - (board.TotalCols / 2) * CharactersPerBoardSquare;
 
             Console.SetCursorPosition(startColPrintInt, startRowPrintInt);
+            Console.WriteLine("x");
+            Console.ReadLine();
         }
     }
 }

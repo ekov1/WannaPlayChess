@@ -8,6 +8,7 @@
     using WannaPlayChess.Players.Contracts;
     using WannaPlayChess.Renderes.Contracts;
     using WannaPlayChess.Board;
+    using WannaPlayChess.Players;
 
     public class StandadrdTwoPlayerEngine : IChessEngine
     {
@@ -34,7 +35,8 @@
 
         public void Initialize(IInitializeGameBoard initializeGameBoard)
         {
-           var players = this.inputProvider.GetPlayers(GlobalConstants.StandardGameNumberOfPlayers);
+            var players = new List<IPlayer>() { new Player("w", ChessColor.White), new Player("b", ChessColor.Black) };
+           // var players = this.inputProvider.GetPlayers(GlobalConstants.StandardGameNumberOfPlayers);
             initializeGameBoard.Initialize(players, this.board);
             this.renderer.RenderBoard(board);
         }
